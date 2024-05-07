@@ -46,7 +46,8 @@ const MemoryStore = memoryStore(session);
 const {
   ENABLE_CONFORMANCE,
   ENABLE_HTTPS,
-  RP_ID = 'localhost',
+  // RP_ID = 'localhost', // webauthn-sd.vercel.app
+  RP_ID = 'webauthn-sd.vercel.app', // webauthn-sd.vercel.app
 } = process.env;
 
 app.use(express.static('./public/'));
@@ -218,6 +219,7 @@ app.post('/verify-registration', async (req, res) => {
  * Login (a.k.a. "Authentication")
  */
 app.get('/generate-authentication-options', async (req, res) => {
+  console.log('generate-authentication-options=====>');
   // You need to know the user by this point
   const user = inMemoryUserDeviceDB[loggedInUserId];
 

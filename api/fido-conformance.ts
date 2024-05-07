@@ -23,7 +23,7 @@ interface LoggedInFIDOUser extends LoggedInUser {
 /**
  * Create paths specifically for testing with the FIDO Conformance Tools
  */
-export const fidoConformanceRouter = express.Router();
+export const fidoConformanceRouter: express.Router = express.Router()
 export const fidoRouteSuffix = '/fido';
 
 const rpName = 'FIDO Conformance Test';
